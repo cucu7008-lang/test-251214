@@ -1,217 +1,254 @@
-"use client";
+"use client"
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from "react"
+import * as THREE from "three"
 
 interface ShaderAnimationProps {
-  className?: string;
-  interactive?: boolean;
+  className?: string
 }
 
-const ShaderAnimation: React.FC<ShaderAnimationProps> = ({
-  className = "",
-  interactive = true
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number | null>(null);
-  const mouseRef = useRef({ x: 0.5, y: 0.5 });
-  const [isInteractive, setIsInteractive] = useState(interactive);
+const ShaderAnimation: React.FC<ShaderAnimationProps> = ({ className = "" }) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
+  const sceneRef = useRef<THREE.Scene | null>(null)
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
+  const materialRef = useRef<THREE.ShaderMaterial | null>(null)
+  const animationRef = useRef<number | null>(null)
+  const mouseRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!containerRef.current) return
 
-    const gl = canvas.getContext('webgl');
-    if (!gl) {
-      console.error('WebGL not supported');
-      return;
-    }
+    // Scene setup
+    const scene = new THREE.Scene()
+    sceneRef.current = scene
 
-    // Vertex shader source
-    const vertexShaderSource = `
-      attribute vec2 a_position;
-      void main() {
-        gl_Position = vec4(a_position, 0.0, 1.0);
-      }
-    `;
+    // Camera setup
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      0.1,
+      1000
+    )
+    camera.position.z = 1
+    cameraRef.current = camera
 
-    // Fragment shader source with animated gradients
-    const fragmentShaderSource = `
-      precision mediump float;
+    // Renderer setup
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    renderer.setSize(
+      containerRef.current.clientWidth,
+      containerRef.current.clientHeight
+    )
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    containerRef.current.appendChild(renderer.domElement)
+    rendererRef.current = renderer
 
-      uniform vec2 u_resolution;
-      uniform float u_time;
-      uniform vec2 u_mouse;
+    // Shader material
+    const shaderMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uResolution: {
+          value: new THREE.Vector2(
+            containerRef.current.clientWidth,
+            containerRef.current.clientHeight
+          ),
+        },
+        uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+      },
+      vertexShader: `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform float uTime;
+        uniform vec2 uResolution;
+        uniform vec2 uMouse;
+        varying vec2 vUv;
 
-      vec3 palette(float t) {
-        vec3 a = vec3(0.5, 0.5, 0.5);
-        vec3 b = vec3(0.5, 0.5, 0.5);
-        vec3 c = vec3(1.0, 1.0, 1.0);
-        vec3 d = vec3(0.263, 0.416, 0.557);
+        #define PI 3.14159265359
 
-        return a + b * cos(6.28318 * (c * t + d));
-      }
-
-      float noise(vec2 p) {
-        return sin(p.x * 10.0) * sin(p.y * 10.0);
-      }
-
-      void main() {
-        vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-        vec2 uv0 = uv;
-        uv = uv * 2.0 - 1.0;
-        uv.x *= u_resolution.x / u_resolution.y;
-
-        float d = length(uv);
-        vec3 col = vec3(0.0);
-
-        // Create multiple animated layers
-        for(float i = 0.0; i < 4.0; i++) {
-          uv = fract(uv * 1.5) - 0.5;
-
-          d = length(uv) * exp(-length(uv0));
-          vec3 color = palette(length(uv0) + i * 0.4 + u_time * 0.01);
-
-          d = sin(d * 4.0 + u_time) / 36.0;
-
-          d = pow(0.005 / d, 1.5);
-
-          // Mouse interaction
-          vec2 mouseEffect = u_mouse - uv0;
-          float mouseDist = length(mouseEffect);
-          d *= 1.0 + sin(mouseDist * 10.0 - u_time * 2.0) * 0.1;
-
-          col += color * d;
+        // Noise functions
+        float random(vec2 st) {
+          return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
         }
 
-        // Add wave distortion
-        float wave = sin(uv0.x * 2.0 + u_time) * 0.01;
-        col += vec3(wave);
+        float noise(vec2 st) {
+          vec2 i = floor(st);
+          vec2 f = fract(st);
+          float a = random(i);
+          float b = random(i + vec2(1.0, 0.0));
+          float c = random(i + vec2(0.0, 1.0));
+          float d = random(i + vec2(1.0, 1.0));
+          vec2 u = f * f * (3.0 - 2.0 * f);
+          return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+        }
 
-        // Add gradient overlay - Purple theme
-        vec3 gradient1 = vec3(0.1, 0.0, 0.2);
-        vec3 gradient2 = vec3(0.4, 0.1, 0.6);
-        vec3 gradientMix = mix(gradient1, gradient2, uv0.y + sin(u_time) * 0.2);
-        col = mix(col, gradientMix, 0.4);
+        float fbm(vec2 st) {
+          float value = 0.0;
+          float amplitude = 0.5;
+          float frequency = 0.0;
+          for (int i = 0; i < 6; i++) {
+            value += amplitude * noise(st);
+            st *= 2.0;
+            amplitude *= 0.5;
+          }
+          return value;
+        }
 
-        gl_FragColor = vec4(col, 1.0);
+        // Ripple effect
+        float ripple(vec2 uv, vec2 center, float time) {
+          float dist = length(uv - center);
+          return sin(dist * 20.0 - time * 3.0) * exp(-dist * 3.0);
+        }
+
+        void main() {
+          vec2 uv = vUv;
+          vec2 pixelCoord = uv * uResolution;
+
+          // Aspect ratio correction
+          float aspect = uResolution.x / uResolution.y;
+          vec2 uvCorrected = vec2(uv.x * aspect, uv.y);
+
+          // Time-based animation
+          float time = uTime * 0.5;
+
+          // Create flowing noise pattern
+          vec2 q = vec2(0.0);
+          q.x = fbm(uvCorrected + 0.1 * time);
+          q.y = fbm(uvCorrected + vec2(1.0));
+
+          vec2 r = vec2(0.0);
+          r.x = fbm(uvCorrected + 1.0 * q + vec2(1.7, 9.2) + 0.15 * time);
+          r.y = fbm(uvCorrected + 1.0 * q + vec2(8.3, 2.8) + 0.126 * time);
+
+          float f = fbm(uvCorrected + r);
+
+          // Mouse interaction ripples
+          vec2 mouseUV = uMouse;
+          mouseUV.x *= aspect;
+          float mouseRipple = ripple(uvCorrected, mouseUV, uTime);
+
+          // Color palette - Purple/Blue theme for real estate
+          vec3 color1 = vec3(0.05, 0.0, 0.15);  // Deep purple-black
+          vec3 color2 = vec3(0.2, 0.0, 0.4);    // Dark purple
+          vec3 color3 = vec3(0.4, 0.1, 0.6);    // Medium purple
+          vec3 color4 = vec3(0.6, 0.2, 0.8);    // Light purple
+
+          // Mix colors based on noise
+          vec3 color = mix(color1, color2, clamp(f * f * 2.0, 0.0, 1.0));
+          color = mix(color, color3, clamp(length(q), 0.0, 1.0));
+          color = mix(color, color4, clamp(length(r.x), 0.0, 1.0) * 0.5);
+
+          // Add ripple highlight
+          color += vec3(0.3, 0.1, 0.5) * mouseRipple * 0.5;
+
+          // Add subtle gradient overlay
+          float gradient = smoothstep(0.0, 1.0, uv.y);
+          color = mix(color * 0.7, color, gradient);
+
+          // Add some sparkle/stars effect
+          float stars = pow(random(floor(pixelCoord * 0.5)), 20.0);
+          stars *= sin(uTime * 2.0 + random(floor(pixelCoord * 0.5)) * 6.28) * 0.5 + 0.5;
+          color += vec3(stars) * 0.3;
+
+          // Vignette effect
+          float vignette = 1.0 - length(uv - 0.5) * 0.8;
+          color *= vignette;
+
+          gl_FragColor = vec4(color, 1.0);
+        }
+      `,
+    })
+    materialRef.current = shaderMaterial
+
+    // Create plane geometry
+    const geometry = new THREE.PlaneGeometry(2, 2)
+    const mesh = new THREE.Mesh(geometry, shaderMaterial)
+    scene.add(mesh)
+
+    // Mouse move handler
+    const handleMouseMove = (event: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect()
+        mouseRef.current.x = (event.clientX - rect.left) / rect.width
+        mouseRef.current.y = 1.0 - (event.clientY - rect.top) / rect.height
       }
-    `;
-
-    // Create and compile shaders
-    function createShader(gl: WebGLRenderingContext, type: number, source: string): WebGLShader | null {
-      const shader = gl.createShader(type);
-      if (!shader) return null;
-
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error('Shader compilation error:', gl.getShaderInfoLog(shader));
-        gl.deleteShader(shader);
-        return null;
-      }
-
-      return shader;
     }
 
-    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-
-    if (!vertexShader || !fragmentShader) return;
-
-    // Create program
-    const program = gl.createProgram();
-    if (!program) return;
-
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
-
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error('Program linking error:', gl.getProgramInfoLog(program));
-      return;
+    // Touch move handler for mobile
+    const handleTouchMove = (event: TouchEvent) => {
+      if (containerRef.current && event.touches.length > 0) {
+        const rect = containerRef.current.getBoundingClientRect()
+        mouseRef.current.x =
+          (event.touches[0].clientX - rect.left) / rect.width
+        mouseRef.current.y =
+          1.0 - (event.touches[0].clientY - rect.top) / rect.height
+      }
     }
 
-    // Set up geometry (full screen quad)
-    const positions = new Float32Array([
-      -1, -1,
-       1, -1,
-      -1,  1,
-       1,  1,
-    ]);
-
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
-
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
-    const timeLocation = gl.getUniformLocation(program, 'u_time');
-    const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
-
-    // Handle resize
+    // Resize handler
     const handleResize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      gl.viewport(0, 0, canvas.width, canvas.height);
-    };
+      if (!containerRef.current || !renderer || !camera || !shaderMaterial)
+        return
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
+      const width = containerRef.current.clientWidth
+      const height = containerRef.current.clientHeight
 
-    // Handle mouse movement
-    const handleMouseMove = (e: MouseEvent) => {
-      if (isInteractive) {
-        const rect = canvas.getBoundingClientRect();
-        mouseRef.current.x = (e.clientX - rect.left) / rect.width;
-        mouseRef.current.y = 1.0 - ((e.clientY - rect.top) / rect.height);
-      }
-    };
+      camera.aspect = width / height
+      camera.updateProjectionMatrix()
 
-    window.addEventListener('mousemove', handleMouseMove);
+      renderer.setSize(width, height)
+      shaderMaterial.uniforms.uResolution.value.set(width, height)
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("touchmove", handleTouchMove)
+    window.addEventListener("resize", handleResize)
 
     // Animation loop
-    const startTime = Date.now();
+    const animate = () => {
+      if (shaderMaterial) {
+        shaderMaterial.uniforms.uTime.value += 0.016
+        shaderMaterial.uniforms.uMouse.value.set(
+          mouseRef.current.x,
+          mouseRef.current.y
+        )
+      }
 
-    const render = () => {
-      const currentTime = (Date.now() - startTime) * 0.001;
+      renderer.render(scene, camera)
+      animationRef.current = requestAnimationFrame(animate)
+    }
 
-      gl.clearColor(0, 0, 0, 1);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-
-      gl.useProgram(program);
-
-      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-      gl.enableVertexAttribArray(positionLocation);
-      gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-
-      gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
-      gl.uniform1f(timeLocation, currentTime);
-      gl.uniform2f(mouseLocation, mouseRef.current.x, mouseRef.current.y);
-
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-
-      animationRef.current = requestAnimationFrame(render);
-    };
-
-    render();
+    animate()
 
     // Cleanup
     return () => {
       if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+        cancelAnimationFrame(animationRef.current)
       }
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isInteractive]);
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener("resize", handleResize)
+
+      if (containerRef.current && renderer.domElement) {
+        containerRef.current.removeChild(renderer.domElement)
+      }
+
+      geometry.dispose()
+      shaderMaterial.dispose()
+      renderer.dispose()
+    }
+  }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
+      ref={containerRef}
       className={`absolute inset-0 w-full h-full ${className}`}
     />
-  );
-};
+  )
+}
 
-export default ShaderAnimation;
+export default ShaderAnimation

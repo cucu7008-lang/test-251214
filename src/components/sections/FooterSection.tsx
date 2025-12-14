@@ -23,15 +23,15 @@ export default function FooterSection() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Phone className="w-4 h-4 text-purple-400" />
-                <span>1588-0000</span>
+                <span>031-546-8787</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Mail className="w-4 h-4 text-purple-400" />
-                <span>contact@byeongjeom.com</span>
+                <span>cucu7008@gmail.com</span>
               </li>
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <MapPin className="w-4 h-4 text-purple-400 mt-0.5" />
-                <span>경기도 화성시 병점동 123-45<br />병점복합타운</span>
+                <span>경기도 화성시 병점노을4로 19 1층 109-1호</span>
               </li>
             </ul>
           </div>
@@ -42,9 +42,9 @@ export default function FooterSection() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <Clock className="w-4 h-4 text-purple-400" />
-                <span>평일 09:00 - 18:00</span>
+                <span>평일 9:00 ~ 20:00</span>
               </li>
-              <li className="text-gray-400 text-sm pl-7">토요일 10:00 - 15:00</li>
+              <li className="text-gray-400 text-sm pl-7">토요일 9:00~ 20:00</li>
               <li className="text-gray-400 text-sm pl-7">일요일/공휴일 휴무</li>
             </ul>
           </div>

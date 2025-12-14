@@ -32,6 +32,10 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-folder-back: var(--folder-back);
+  --color-folder-front: var(--folder-front);
+  --color-folder-tab: var(--folder-tab);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -72,11 +76,15 @@
   --accent: #6B46C1;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
   --border: #27272a;
   --input: #27272a;
   --ring: #6B46C1;
   --purple: #6B46C1;
   --purple-dark: #553C9A;
+  --folder-back: #553C9A;
+  --folder-front: #6B46C1;
+  --folder-tab: #4C1D95;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

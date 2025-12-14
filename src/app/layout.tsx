@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 
   // 기본 메타 정보
   title: {
-    default: "상가다이지 | 병점복합타운 상가 & 사무실 전문",
-    template: "%s | 상가다이지",
+    default: "상가다이찌 | 병점복합타운 상가 & 사무실 전문",
+    template: "%s | 상가다이찌",
   },
-  description: "병점복합타운 상가·사무실 전문 상가다이지입니다. 창업 상담, 양도양수, 매물정보, 부동산 상식까지 한 곳에서! 병점역 도보 5분, 무료 상담 신청하세요.",
+  description: "병점복합타운 상가·사무실 전문 상가다이찌입니다. 창업 상담, 양도양수, 매물정보, 부동산 상식까지 한 곳에서! 병점역 도보 5분, 무료 상담 신청하세요.",
 
   // SEO 키워드
   keywords: [
-    "상가다이지",
+    "상가다이찌",
     "병점복합타운",
     "병점 상가",
     "병점 사무실",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   ],
 
   // 작성자 정보
-  authors: [{ name: "상가다이지", url: siteUrl }],
-  creator: "상가다이지",
-  publisher: "상가다이지",
+  authors: [{ name: "상가다이찌", url: siteUrl }],
+  creator: "상가다이찌",
+  publisher: "상가다이찌",
 
   // 검색 엔진 설정
   robots: {
