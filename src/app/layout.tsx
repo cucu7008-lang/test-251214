@@ -71,15 +71,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: siteUrl,
-    siteName: "상가다이지",
-    title: "상가다이지 | 병점복합타운 상가 & 사무실 전문",
+    siteName: "상가다이찌",
+    title: "상가다이찌 | 병점복합타운 상가 & 사무실 전문",
     description: "병점복합타운 상가·사무실 전문! 창업 상담, 양도양수, 매물정보, 부동산 상식까지. 병점역 도보 5분, 지금 무료 상담 신청하세요.",
     images: [
       {
         url: "/land.png",
         width: 1200,
         height: 630,
-        alt: "상가다이지 - 상담문의, 매물정보, 부동산 상식, 홈페이지",
+        alt: "상가다이찌 - 상담문의, 매물정보, 부동산 상식, 홈페이지",
         type: "image/png",
       },
     ],
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
   // Twitter 카드
   twitter: {
     card: "summary_large_image",
-    title: "상가다이지 | 병점복합타운 상가 & 사무실",
+    title: "상가다이찌 | 병점복합타운 상가 & 사무실",
     description: "병점복합타운 상가·사무실 전문! 창업 상담, 양도양수, 매물정보까지.",
     images: ["/land.png"],
     creator: "@sangadaiji",
@@ -108,7 +108,7 @@ export const metadata: Metadata = {
   },
 
   // 앱 관련 (필요시)
-  applicationName: "상가다이지",
+  applicationName: "상가다이찌",
 
   // 포맷 감지 비활성화 (전화번호 자동 링크 방지)
   formatDetection: {
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "상가다이지",
+  name: "상가다이찌",
   description: "병점복합타운 상가·사무실 전문 부동산. 창업 상담, 양도양수, 매물정보 제공.",
   url: siteUrl,
   logo: `${siteUrl}/land.png`,
