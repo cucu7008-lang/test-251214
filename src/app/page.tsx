@@ -1,11 +1,11 @@
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
+import ProductsShowcase from "@/components/sections/ProductsShowcase";
 import PortfolioSection from "@/components/sections/PortfolioSection";
 import NewsSection from "@/components/sections/NewsSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import ContactFormSection from "@/components/sections/ContactFormSection";
-import FooterSection from "@/components/sections/FooterSection";
 import AIChatbot from "@/components/chatbot/AIChatbot";
 
 export default function Home() {
@@ -20,6 +20,9 @@ export default function Home() {
       {/* 솔루션 & 혜택 섹션 */}
       <SolutionSection />
 
+      {/* 상품 쇼케이스 섹션 */}
+      <ProductsShowcase />
+
       {/* 3D 매물 갤러리 섹션 */}
       <PortfolioSection />
 
@@ -31,9 +34,6 @@ export default function Home() {
 
       {/* 상담 신청 폼 섹션 */}
       <ContactFormSection />
-
-      {/* 푸터 */}
-      <FooterSection />
 
       {/* AI 챗봇 */}
       <AIChatbot />
