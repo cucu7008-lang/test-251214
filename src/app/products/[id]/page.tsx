@@ -26,69 +26,7 @@ interface Product {
 }
 
 const productsData: Record<string, Product> = {
-  'product-1': {
-    id: 'product-1',
-    title: '병점복합타운 프리미엄 상가',
-    description: '병점역 도보 5분 거리의 최고 입지! 높은 유동인구와 편리한 접근성으로 사업 성공을 보장합니다.',
-    fullDescription: `병점역에서 도보 5분 거리에 위치한 프리미엄 1층 상가입니다.
-
-주변에 아파트 단지와 오피스텔이 밀집되어 있어 안정적인 유동인구가 보장됩니다. 카페, 음식점, 편의점, 소매점 등 다양한 업종에 적합하며, 넓은 전면 유리창으로 시인성이 뛰어납니다.
-
-최근 리모델링을 완료하여 깨끗한 상태이며, 바로 영업이 가능합니다. 주차 공간도 충분하여 고객 편의성이 우수합니다.`,
-    image: '/images/product-1.jpg',
-    price: '월 250만원',
-    area: '50평 (165㎡)',
-    floor: '1층',
-    deposit: '5,000만원',
-    features: ['역세권', '주차 가능', '1층 상가', '화장실 별도', '전면 유리창', '리모델링 완료'],
-    amenities: ['냉난방', '주차 5대', '화장실 2개', '탈의실', '창고', 'WiFi'],
-    location: {
-      address: '경기도 화성시 병점동 123-45 병점복합타운 1층',
-      distance: '병점역 도보 5분',
-    },
-  },
-  'product-2': {
-    id: 'product-2',
-    title: '병점복합타운 고급 사무실',
-    description: '쾌적한 업무 환경과 현대적인 인테리어로 고급스러운 사무 공간을 제공합니다.',
-    fullDescription: `병점복합타운의 7층에 위치한 고급 사무실입니다. 남향으로 배치되어 하루 종일 자연 채광이 풍부하며, 탁 트인 전망으로 쾌적한 업무 환경을 제공합니다.
-
-현대적인 인테리어와 함께 회의실, 휴게실이 별도로 구성되어 있어 직원 복지와 업무 효율을 모두 고려한 공간입니다. IT 스타트업, 컨설팅 회사, 디자인 스튜디오 등에 최적화되어 있습니다.
-
-전용 주차 공간 2대가 제공되며, 24시간 출입이 가능한 보안 시스템이 갖춰져 있습니다.`,
-    image: '/images/product-2.jpg',
-    price: '월 180만원',
-    area: '35평 (115㎡)',
-    floor: '7층',
-    deposit: '3,000만원',
-    features: ['채광 우수', '주차 2대', '회의실 포함', '냉난방 완비', '남향', '24시간 출입'],
-    amenities: ['회의실', '휴게실', '개별 냉난방', '주차 2대', '보안 시스템', '엘리베이터'],
-    location: {
-      address: '경기도 화성시 병점동 123-45 병점복합타운 7층',
-      distance: '병점역 도보 5분',
-    },
-  },
-  'product-3': {
-    id: 'product-3',
-    title: '병점복합타운 코너 상가',
-    description: '양면 개방형 코너 상가로 최대 노출도! 카페, 음식점, 소매점에 최적화된 공간입니다.',
-    fullDescription: `교차로 코너에 위치한 프리미엄 양면 개방형 상가입니다. 양쪽에서 모두 접근이 가능하여 시인성과 접근성이 매우 우수합니다.
-
-넓은 65평 공간으로 카페, 레스토랑, 브랜드 매장 등 다양한 업종에 활용 가능합니다. 천고가 높아 개방감이 뛰어나며, 전면 통유리로 내부가 잘 보여 고객 유입에 유리합니다.
-
-1층과 지하층을 연결하는 덤웨이터(소형 화물 엘리베이터)가 설치되어 있어 물류 이동이 편리하며, 넓은 주차장이 인접해 있어 고객 편의성이 뛰어납니다.`,
-    image: '/images/product-3.jpg',
-    price: '월 320만원',
-    area: '65평 (214㎡)',
-    floor: '1층 + 지하',
-    deposit: '7,000만원',
-    features: ['코너 상가', '양면 출입', '넓은 주차장', '덤웨이터', '높은 천고', '통유리'],
-    amenities: ['덤웨이터', '주차 10대', '냉난방', '화장실 3개', '창고', '야외 테라스'],
-    location: {
-      address: '경기도 화성시 병점동 123-45 병점복합타운 1층',
-      distance: '병점역 도보 3분',
-    },
-  },
+  // 매물 정보가 추가되면 여기에 입력하세요
 };
 
 export default function ProductDetailPage() {
@@ -284,7 +222,7 @@ export default function ProductDetailPage() {
             <div className="sticky bottom-0 bg-white border-t border-gray-200 -mx-6 px-6 py-6 lg:mx-0 lg:border-0 lg:p-0">
               <div className="grid grid-cols-3 gap-4">
                 <a
-                  href="tel:1588-0000"
+                  href="tel:010-5533-3214"
                   className="flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg"
                 >
                   <Phone className="h-5 w-5" />
