@@ -16,7 +16,7 @@ export default function Story() {
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                2014년부터 병점복합타운 상가 중개를 시작한 상가다이찌는 이 지역의
+                2014년부터 병점복합타운 상가 중개를 시작한 병점역광장부동산은 이 지역의
                 상권 변화와 발전을 함께해왔습니다.
               </p>
               <p>

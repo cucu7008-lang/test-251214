@@ -65,7 +65,7 @@ export default function AdminSidebar() {
           </div>
           <div>
             <h1 className="font-bold text-gray-900">관리자 페이지</h1>
-            <p className="text-xs text-gray-500">상가다이찌</p>
+            <p className="text-xs text-gray-500">병점역광장부동산</p>
           </div>
         </Link>
       </div>

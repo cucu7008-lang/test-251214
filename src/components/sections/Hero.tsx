@@ -11,7 +11,7 @@ export default function Hero() {
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
             병점복합타운 상가 전문
             <br />
-            <span className="text-blue-600">상가다이찌</span>
+            <span className="text-blue-600">병점역광장부동산</span>
           </h1>
 
           {/* 서브 타이틀 */}

@@ -30,7 +30,7 @@ export default function Benefits() {
             무료로 제공되는 혜택
           </h2>
           <p className="text-lg text-gray-600">
-            상가다이찌만의 특별한 서비스를 경험하세요
+            병점역광장부동산만의 특별한 서비스를 경험하세요
           </p>
         </div>
 

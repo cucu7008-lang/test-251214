@@ -19,14 +19,14 @@ export const metadata: Metadata = {
 
   // 기본 메타 정보
   title: {
-    default: "상가다이찌 | 병점복합타운 상가 & 사무실 전문",
-    template: "%s | 상가다이찌",
+    default: "병점역광장부동산 | 병점복합타운 상가 & 사무실 전문",
+    template: "%s | 병점역광장부동산",
   },
-  description: "병점복합타운 상가·사무실 전문 상가다이찌입니다. 창업 상담, 양도양수, 매물정보, 부동산 상식까지 한 곳에서! 병점역 도보 5분, 무료 상담 신청하세요.",
+  description: "병점복합타운 상가·사무실 전문 병점역광장부동산입니다. 창업 상담, 양도양수, 매물정보, 부동산 상식까지 한 곳에서! 병점역 도보 5분, 무료 상담 신청하세요.",
 
   // SEO 키워드
   keywords: [
-    "상가다이찌",
+    "병점역광장부동산",
     "병점복합타운",
     "병점 상가",
     "병점 사무실",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   ],
 
   // 작성자 정보
-  authors: [{ name: "상가다이찌", url: siteUrl }],
-  creator: "상가다이찌",
-  publisher: "상가다이찌",
+  authors: [{ name: "병점역광장부동산", url: siteUrl }],
+  creator: "병점역광장부동산",
+  publisher: "병점역광장부동산",
 
   // 검색 엔진 설정
   robots: {
@@ -74,15 +74,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: siteUrl,
-    siteName: "상가다이찌",
-    title: "상가다이찌 | 병점복합타운 상가 & 사무실 전문",
+    siteName: "병점역광장부동산",
+    title: "병점역광장부동산 | 병점복합타운 상가 & 사무실 전문",
     description: "병점복합타운 상가·사무실 전문! 창업 상담, 양도양수, 매물정보, 부동산 상식까지. 병점역 도보 5분, 지금 무료 상담 신청하세요.",
     images: [
       {
         url: "/land.png",
         width: 1200,
         height: 630,
-        alt: "상가다이찌 - 상담문의, 매물정보, 부동산 상식, 홈페이지",
+        alt: "병점역광장부동산 - 상담문의, 매물정보, 부동산 상식, 홈페이지",
         type: "image/png",
       },
     ],
@@ -91,10 +91,10 @@ export const metadata: Metadata = {
   // Twitter 카드
   twitter: {
     card: "summary_large_image",
-    title: "상가다이찌 | 병점복합타운 상가 & 사무실",
+    title: "병점역광장부동산 | 병점복합타운 상가 & 사무실",
     description: "병점복합타운 상가·사무실 전문! 창업 상담, 양도양수, 매물정보까지.",
     images: ["/land.png"],
-    creator: "@sangadaiji",
+    creator: "@byeongjeom",
   },
 
   // 기타 메타 정보
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
   },
 
   // 앱 관련 (필요시)
-  applicationName: "상가다이찌",
+  applicationName: "병점역광장부동산",
 
   // 포맷 감지 비활성화 (전화번호 자동 링크 방지)
   formatDetection: {
@@ -125,16 +125,22 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "상가다이찌",
+  name: "병점역광장부동산공인중개사사무소",
   description: "병점복합타운 상가·사무실 전문 부동산. 창업 상담, 양도양수, 매물정보 제공.",
   url: siteUrl,
   logo: `${siteUrl}/land.png`,
   image: `${siteUrl}/land.png`,
-  telephone: "1588-0000",
-  email: "contact@sangadaiji.com",
+  telephone: "010-5533-3214",
+  email: "td5875@naver.com",
+  founder: {
+    "@type": "Person",
+    name: "전화룡"
+  },
+  identifier: "41590-2024-10018",
+  taxID: "625-10-00813",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "병점동 123-45 병점복합타운",
+    streetAddress: "병점노을4로19, 골든스퀘어 I 109-1호",
     addressLocality: "화성시",
     addressRegion: "경기도",
     postalCode: "18000",

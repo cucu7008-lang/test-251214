@@ -9,10 +9,10 @@ interface Message {
 }
 
 // 부동산 전문 AI 시스템 프롬프트
-const SYSTEM_PROMPT = `당신은 "상가다이찌"의 전문 부동산 AI 상담사입니다.
+const SYSTEM_PROMPT = `당신은 "병점역광장부동산공인중개사사무소"의 전문 부동산 AI 상담사입니다.
 
 ## 중요: 첫 답변 형식
-반드시 모든 답변의 시작은 "안녕하세요! 상가다이찌 챗봇입니다. 부동산 관련 무엇이든 물어보세요."로 시작하세요.
+반드시 모든 답변의 시작은 "안녕하세요! 병점역광장부동산 챗봇입니다. 부동산 관련 무엇이든 물어보세요."로 시작하세요.
 
 ## 역할
 - 병점복합타운 상가 및 사무실 전문 상담
@@ -35,7 +35,7 @@ const SYSTEM_PROMPT = `당신은 "상가다이찌"의 전문 부동산 AI 상담
 ## 주의사항
 - 법률 자문이 필요한 경우 전문가 상담 권유
 - 확실하지 않은 정보는 "확인 후 안내드리겠습니다" 응답
-- 항상 "상가다이찌"를 통한 상담 예약 유도`;
+- 항상 "병점역광장부동산"을 통한 상담 예약 유도`;
 
 export default function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -169,7 +169,7 @@ export default function AIChatbot() {
                 <MessageCircle className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-white font-bold">상가다이찌 AI</h3>
+                <h3 className="text-white font-bold">병점역광장부동산 AI</h3>
                 <p className="text-white/80 text-xs">부동산 전문 상담</p>
               </div>
             </div>
@@ -205,7 +205,7 @@ export default function AIChatbot() {
             {/* 환영 메시지 */}
             {messages.length === 0 && (
               <div className="bg-gray-800 rounded-lg p-4 text-gray-300">
-                <p className="font-semibold text-white mb-2">안녕하세요! 상가다이찌 챗봇입니다. 👋</p>
+                <p className="font-semibold text-white mb-2">안녕하세요! 병점역광장부동산 챗봇입니다. 👋</p>
                 <p className="text-sm">
                   부동산 관련 무엇이든 물어보세요!
                   병점복합타운 상가/사무실, 창업, 양도양수, 매물 정보 등 상담해드립니다.
