@@ -27,6 +27,6 @@
     <rect x="28" y="33" width="3" height="4" fill="#FCD34D"/>
   </g>
 
-  <!-- 텍스트: 상가다이찌투자연구소 (진한 검정색, 더 굵게) -->
-  <text x="60" y="52" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', Arial, sans-serif" font-size="32" font-weight="900" fill="#000000" letter-spacing="-1">상가다이찌투자연구소</text>
+  <!-- 텍스트: 상가다이찌 투자연구소 (진한 검정색, 더 굵게) -->
+  <text x="60" y="52" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', Arial, sans-serif" font-size="32" font-weight="900" fill="#000000" letter-spacing="-1">상가다이찌 투자연구소</text>
 </svg>
