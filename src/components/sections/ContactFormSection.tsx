@@ -119,7 +119,7 @@ export default function ContactFormSection() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">전화 상담</div>
-                  <div className="font-medium">1588-0000</div>
+                  <div className="font-medium">010-5533-3214</div>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-gray-300">
@@ -128,7 +128,7 @@ export default function ContactFormSection() {
                 </div>
                 <div>
                   <div className="text-sm text-gray-500">이메일</div>
-                  <div className="font-medium">contact@byeongjeom.com</div>
+                  <div className="font-medium">td5875@naver.com</div>
                 </div>
               </div>
             </div>
