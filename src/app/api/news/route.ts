@@ -72,7 +72,6 @@ async function crawlNaverRealEstateNews(): Promise<NewsItem[]> {
 
 // 상대 시간 계산
 function getRelativeTime(): string {
-  const now = new Date();
   const minutes = Math.floor(Math.random() * 60);
   if (minutes < 5) return "방금 전";
   if (minutes < 60) return `${minutes}분 전`;

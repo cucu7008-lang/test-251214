@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Filter, Edit, Trash2, MoreVertical, UserCheck, UserX } from 'lucide-react';
+import { Search, Edit, Trash2, MoreVertical } from 'lucide-react';
 
 interface UserTableData {
   id: string;
@@ -82,7 +82,7 @@ export default function AdminUsersPage() {
           <div>
             <select
               value={selectedRole}
-              onChange={(e) => setSelectedRole(e.target.value as any)}
+              onChange={(e) => setSelectedRole(e.target.value as 'all' | 'user' | 'admin')}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="all">모든 역할</option>
@@ -93,7 +93,7 @@ export default function AdminUsersPage() {
           <div>
             <select
               value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value as any)}
+              onChange={(e) => setSelectedStatus(e.target.value as 'all' | 'active' | 'inactive' | 'suspended')}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value="all">모든 상태</option>

@@ -3,12 +3,22 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { CheckCircle, Download, Home, Package } from 'lucide-react';
+import { CheckCircle, Home, Package } from 'lucide-react';
+
+interface PaymentInfo {
+  paymentKey: string;
+  orderId: string;
+  amount: string;
+  orderName?: string;
+  approvedAt?: string;
+  method?: string;
+  [key: string]: unknown;
+}
 
 function PaymentSuccessContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [paymentInfo, setPaymentInfo] = useState<any>(null);
+  const [paymentInfo, setPaymentInfo] = useState<PaymentInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

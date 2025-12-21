@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Calendar, MapPin, Phone, Mail, Eye, Download } from 'lucide-react';
+import { Calendar, MapPin, Phone, Eye, Download } from 'lucide-react';
 
 interface Order {
   id: string;
@@ -135,7 +135,7 @@ export default function OrdersPage() {
           {tabs.map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setSelectedTab(tab.key as any)}
+              onClick={() => setSelectedTab(tab.key as 'all' | Order['status'])}
               className={`px-4 py-2 rounded-lg whitespace-nowrap transition-colors font-medium ${
                 selectedTab === tab.key
                   ? 'bg-blue-600 text-white'

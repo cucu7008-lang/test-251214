@@ -48,7 +48,7 @@ export default function ProductsManagementPage() {
     return matchesSearch && matchesFloor;
   });
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (_id: string) => {
     if (confirm('정말 이 상품을 삭제하시겠습니까?')) {
       // TODO: Firebase에서 삭제
       alert('삭제 기능은 곧 구현됩니다.');

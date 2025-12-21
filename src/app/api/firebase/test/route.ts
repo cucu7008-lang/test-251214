@@ -9,7 +9,7 @@ export async function GET() {
 
     // Firestore 연결 테스트 - 컬렉션 목록 확인
     const collections = ['products', 'users', 'orders'];
-    const results: any = {};
+    const results: Record<string, { exists: boolean; count?: number; docs?: unknown[]; error?: string }> = {};
 
     for (const collectionName of collections) {
       try {

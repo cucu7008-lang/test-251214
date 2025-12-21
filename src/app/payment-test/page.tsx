@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { loadTossPayments } from '@tosspayments/payment-sdk';
 import { CreditCard, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function PaymentTestPage() {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -128,12 +129,12 @@ export default function PaymentTestPage() {
 
         {/* 홈으로 돌아가기 */}
         <div className="text-center mt-6">
-          <a
+          <Link
             href="/"
             className="text-blue-600 hover:text-blue-700 font-medium text-sm"
           >
             ← 홈으로 돌아가기
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,13 +1,26 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Database, RefreshCw, CheckCircle, XCircle, Upload, Download } from 'lucide-react';
+import { Database, CheckCircle, XCircle, Upload, Download } from 'lucide-react';
 import { syncAllDataToFirebase, getProductsFromFirebase, getUsersFromFirebase, getOrdersFromFirebase } from '@/lib/firebaseSync';
+
+interface SyncResult {
+  products?: { success: boolean; message: string };
+  users?: { success: boolean; message: string };
+  orders?: { success: boolean; message: string };
+  error?: string;
+}
+
+interface FetchedData {
+  products: unknown[];
+  users: unknown[];
+  orders: unknown[];
+}
 
 export default function FirebaseSyncPage() {
   const [syncing, setSyncing] = useState(false);
-  const [syncResult, setSyncResult] = useState<any>(null);
-  const [fetchedData, setFetchedData] = useState<any>(null);
+  const [syncResult, setSyncResult] = useState<SyncResult | null>(null);
+  const [fetchedData, setFetchedData] = useState<FetchedData | null>(null);
 
   const handleSyncData = async () => {
     setSyncing(true);
