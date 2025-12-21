@@ -22,6 +22,10 @@ const navigationItems: NavItem[] = [
     href: '/#benefits',
   },
   {
+    label: '상가다이찌 소개',
+    href: 'https://blog.naver.com/td5875/223233920403',
+  },
+  {
     label: '매물 정보',
     href: '/#portfolio',
   },
@@ -58,6 +62,12 @@ export default function Header() {
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
     setActiveSubmenu(null);
+
+    // 외부 링크는 새 탭에서 열기
+    if (href.startsWith('http')) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
 
     // 스무스 스크롤
     const element = document.querySelector(href);
@@ -98,13 +108,25 @@ export default function Header() {
             {/* 데스크탑 네비게이션 */}
             <nav className="hidden lg:flex items-center space-x-6">
               {navigationItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-yellow-500/10 hover:text-yellow-600 transition-colors"
-                >
-                  {item.label}
-                </Link>
+                item.href.startsWith('http') ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-yellow-500/10 hover:text-yellow-600 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-yellow-500/10 hover:text-yellow-600 transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
 
               {/* 전화 상담 버튼 */}
