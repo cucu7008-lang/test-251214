@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Building2, Hash, User, FileText } from "lucide-react";
+import Image from "next/image";
 
 export default function FooterSection() {
   // 정적 연도 값 사용 (hydration mismatch 방지)
@@ -10,6 +11,28 @@ export default function FooterSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-500/5 via-transparent to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 사무실 위치 사진 */}
+        <div className="mb-12">
+          <div className="relative h-64 rounded-2xl overflow-hidden border-2 border-yellow-500/20">
+            <Image
+              src="/office-exterior.jpg"
+              alt="병점역광장부동산 사무실 위치 - 골든스퀘어 I"
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="flex items-center gap-2 text-yellow-400 mb-2">
+                <MapPin className="w-5 h-5" />
+                <span className="font-bold text-lg">찾아오시는 길</span>
+              </div>
+              <p className="text-white text-sm mb-1">경기도 화성시 병점노을4로19, 골든스퀘어 I 109-1호</p>
+              <p className="text-gray-300 text-sm">병점역 도보 5분 거리 | 주차 가능</p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* 회사 정보 */}
           <div className="lg:col-span-1">

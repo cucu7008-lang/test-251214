@@ -1,7 +1,9 @@
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
+import AboutSection from "@/components/sections/AboutSection";
 import PortfolioSection from "@/components/sections/PortfolioSection";
+import BusinessCardSection from "@/components/sections/BusinessCardSection";
 import NewsSection from "@/components/sections/NewsSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import ContactFormSection from "@/components/sections/ContactFormSection";
@@ -19,8 +21,14 @@ export default function Home() {
       {/* 솔루션 & 혜택 섹션 */}
       <SolutionSection />
 
+      {/* 회사 소개 섹션 (사무실 사진) */}
+      <AboutSection />
+
       {/* 3D 매물 갤러리 섹션 */}
       <PortfolioSection />
+
+      {/* 명함 & 연락처 정보 섹션 */}
+      <BusinessCardSection />
 
       {/* 실시간 부동산 뉴스 섹션 */}
       <NewsSection />
