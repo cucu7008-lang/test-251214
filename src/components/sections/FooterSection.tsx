@@ -1,88 +1,113 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Building2, Hash, User, FileText } from "lucide-react";
 
 export default function FooterSection() {
   // 정적 연도 값 사용 (hydration mismatch 방지)
   const currentYear = 2025;
 
   return (
-    <footer className="py-16 bg-black border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="relative py-16 bg-gradient-to-b from-black via-gray-950 to-black border-t border-yellow-500/20">
+      {/* 배경 장식 */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-500/5 via-transparent to-transparent" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* 회사 정보 */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-4">병점복합타운</h3>
+          <div className="lg:col-span-1">
+            <div className="inline-block mb-4">
+              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+                병점역광장부동산
+              </h3>
+              <div className="h-1 w-full bg-gradient-to-r from-yellow-400 to-transparent rounded-full mt-2" />
+            </div>
+            <p className="text-sm text-yellow-100/60 mb-4">
+              공인중개사사무소
+            </p>
             <p className="text-gray-400 text-sm leading-relaxed">
-              예비창업자와 상가 운영자를 위한<br />
-              프리미엄 상업공간 솔루션을 제공합니다.
+              신뢰와 전문성으로<br />
+              최상의 부동산 서비스를 제공합니다.
             </p>
           </div>
 
-          {/* 연락처 */}
+          {/* 연락처 정보 */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">연락처</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <Phone className="w-4 h-4 text-purple-400" />
-                <span>031-546-8787</span>
+            <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+              <div className="w-1 h-6 bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-full" />
+              연락처 정보
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-gray-300 text-sm group hover:text-yellow-400 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
+                  <Phone className="w-4 h-4 text-yellow-400" />
+                </div>
+                <span>010-5533-3214</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <Mail className="w-4 h-4 text-purple-400" />
-                <span>cucu7008@gmail.com</span>
+              <li className="flex items-center gap-3 text-gray-300 text-sm group hover:text-yellow-400 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
+                  <Mail className="w-4 h-4 text-yellow-400" />
+                </div>
+                <span>td5875@naver.com</span>
               </li>
-              <li className="flex items-start gap-3 text-gray-400 text-sm">
-                <MapPin className="w-4 h-4 text-purple-400 mt-0.5" />
-                <span>경기도 화성시 병점노을4로 19 1층 109-1호</span>
+              <li className="flex items-start gap-3 text-gray-300 text-sm group hover:text-yellow-400 transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors flex-shrink-0">
+                  <MapPin className="w-4 h-4 text-yellow-400" />
+                </div>
+                <span className="leading-relaxed">
+                  경기도 화성시 병점노을4로19,<br />
+                  골든스퀘어 I 109-1호
+                </span>
               </li>
             </ul>
           </div>
 
-          {/* 운영시간 */}
+          {/* 사업자 정보 */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-4">운영시간</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
-                <Clock className="w-4 h-4 text-purple-400" />
-                <span>평일 9:00 ~ 20:00</span>
+            <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+              <div className="w-1 h-6 bg-gradient-to-b from-yellow-400 to-yellow-600 rounded-full" />
+              사업자 정보
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-gray-300 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                  <User className="w-4 h-4 text-yellow-400" />
+                </div>
+                <div>
+                  <span className="text-gray-500 text-xs">대표</span>
+                  <p className="text-gray-300">전화룡</p>
+                </div>
               </li>
-              <li className="text-gray-400 text-sm pl-7">토요일 9:00~ 20:00</li>
-              <li className="text-gray-400 text-sm pl-7">일요일/공휴일 휴무</li>
-            </ul>
-          </div>
-
-          {/* 빠른 링크 */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">바로가기</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#benefits" className="text-gray-400 text-sm hover:text-purple-400 transition-colors">
-                  혜택 안내
-                </a>
+              <li className="flex items-center gap-3 text-gray-300 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                  <FileText className="w-4 h-4 text-yellow-400" />
+                </div>
+                <div>
+                  <span className="text-gray-500 text-xs">등록번호</span>
+                  <p className="text-gray-300">41590-2024-10018</p>
+                </div>
               </li>
-              <li>
-                <a href="#testimonials" className="text-gray-400 text-sm hover:text-purple-400 transition-colors">
-                  고객 후기
-                </a>
-              </li>
-              <li>
-                <a href="#contact-form" className="text-gray-400 text-sm hover:text-purple-400 transition-colors">
-                  상담 신청
-                </a>
+              <li className="flex items-center gap-3 text-gray-300 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                  <Hash className="w-4 h-4 text-yellow-400" />
+                </div>
+                <div>
+                  <span className="text-gray-500 text-xs">사업자등록번호</span>
+                  <p className="text-gray-300">625-10-00813</p>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
         {/* 하단 저작권 */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-yellow-500/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              &copy; {currentYear} 병점복합타운. All rights reserved.
+              Copyright {currentYear} <span className="text-yellow-400/80">병점역광장부동산공인중개사사무소</span>. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gray-500 text-sm hover:text-purple-400 transition-colors">
+              <a href="#" className="text-gray-500 text-sm hover:text-yellow-400 transition-colors">
                 개인정보처리방침
               </a>
-              <a href="#" className="text-gray-500 text-sm hover:text-purple-400 transition-colors">
+              <a href="#" className="text-gray-500 text-sm hover:text-yellow-400 transition-colors">
                 이용약관
               </a>
             </div>

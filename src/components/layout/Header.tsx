@@ -18,17 +18,20 @@ const navigationItems: NavItem[] = [
     href: '/',
   },
   {
-    label: '회사소개',
-    href: '/about',
+    label: '서비스 안내',
+    href: '/#benefits',
   },
   {
-    label: '상품',
-    href: '/#products',
-    submenu: [
-      { label: '상품 1', href: '/products/product-1' },
-      { label: '상품 2', href: '/products/product-2' },
-      { label: '상품 3', href: '/products/product-3' },
-    ],
+    label: '매물 정보',
+    href: '/#portfolio',
+  },
+  {
+    label: '고객 후기',
+    href: '/#testimonials',
+  },
+  {
+    label: '상담 신청',
+    href: '/#contact-form',
   },
 ];
 
@@ -93,130 +96,24 @@ export default function Header() {
             </Link>
 
             {/* 데스크탑 네비게이션 */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navigationItems.map((item) => (
-                <div key={item.label} className="relative group">
-                  {item.submenu ? (
-                    <>
-                      <button
-                        className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-white/20 hover:text-blue-600 transition-colors"
-                        onClick={() =>
-                          setActiveSubmenu(
-                            activeSubmenu === item.label ? null : item.label
-                          )
-                        }
-                      >
-                        {item.label}
-                      </button>
-                      {/* 서브메뉴 드롭다운 */}
-                      <div
-                        className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-                        style={{
-                          backdropFilter: 'blur(20px)',
-                          WebkitBackdropFilter: 'blur(20px)',
-                          background: 'rgba(255, 255, 255, 0.95)',
-                          border: '1px solid rgba(255, 255, 255, 0.2)',
-                          borderRadius: '12px',
-                          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                        }}
-                      >
-                        {item.submenu.map((subitem) => (
-                          <Link
-                            key={subitem.label}
-                            href={subitem.href}
-                            className="block px-4 py-3 text-gray-700 hover:bg-white/40 hover:text-blue-600 transition-colors first:rounded-t-xl last:rounded-b-xl"
-                          >
-                            {subitem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-white/20 hover:text-blue-600 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </div>
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-yellow-500/10 hover:text-yellow-600 transition-colors"
+                >
+                  {item.label}
+                </Link>
               ))}
 
-              {/* 로그인 시 마이페이지 메뉴 추가 */}
-              {session && (
-                <Link
-                  href="/mypage"
-                  className="font-medium text-gray-900/90 px-3 py-2 rounded-lg hover:bg-white/20 hover:text-blue-600 transition-colors"
-                >
-                  마이페이지
-                </Link>
-              )}
-
-              {/* 로그인/회원가입 또는 사용자 메뉴 */}
-              {session ? (
-                <div className="relative">
-                  <button
-                    onClick={() => setShowUserMenu(!showUserMenu)}
-                    className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    <User className="h-4 w-4" />
-                    <span className="font-medium">{session.user?.name || '사용자'}</span>
-                  </button>
-
-                  {/* 사용자 드롭다운 메뉴 */}
-                  {showUserMenu && (
-                    <div
-                      className="absolute top-full right-0 mt-2 w-48 rounded-xl overflow-hidden"
-                      style={{
-                        backdropFilter: 'blur(20px)',
-                        WebkitBackdropFilter: 'blur(20px)',
-                        background: 'rgba(255, 255, 255, 0.95)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                      }}
-                    >
-                      <Link
-                        href="/mypage/profile"
-                        className="block px-4 py-3 text-gray-700 hover:bg-white/40 hover:text-blue-600 transition-colors"
-                        onClick={() => setShowUserMenu(false)}
-                      >
-                        내 정보
-                      </Link>
-                      <Link
-                        href="/mypage/orders"
-                        className="block px-4 py-3 text-gray-700 hover:bg-white/40 hover:text-blue-600 transition-colors"
-                        onClick={() => setShowUserMenu(false)}
-                      >
-                        주문내역
-                      </Link>
-                      <Link
-                        href="/mypage/settings"
-                        className="block px-4 py-3 text-gray-700 hover:bg-white/40 hover:text-blue-600 transition-colors"
-                        onClick={() => setShowUserMenu(false)}
-                      >
-                        설정
-                      </Link>
-                      <button
-                        onClick={() => {
-                          setShowUserMenu(false);
-                          signOut({ callbackUrl: '/' });
-                        }}
-                        className="w-full text-left px-4 py-3 text-gray-700 hover:bg-white/40 hover:text-red-600 transition-colors flex items-center gap-2"
-                      >
-                        <LogOut className="h-4 w-4" />
-                        로그아웃
-                      </button>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  href="/auth/signin"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                >
-                  로그인
-                </Link>
-              )}
+              {/* 전화 상담 버튼 */}
+              <a
+                href="tel:010-5533-3214"
+                className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold px-6 py-2 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition-all hover:scale-105"
+              >
+                📞 010-5533-3214
+              </a>
             </nav>
 
             {/* 모바일 햄버거 버튼 */}
@@ -260,86 +157,27 @@ export default function Header() {
           >
             <nav className="py-4">
               {navigationItems.map((item) => (
-                <div key={item.label}>
-                  {item.submenu ? (
-                    <>
-                      <button
-                        onClick={() =>
-                          setActiveSubmenu(
-                            activeSubmenu === item.label ? null : item.label
-                          )
-                        }
-                        className="w-full text-left px-6 py-4 font-medium text-gray-900 hover:bg-white/40 transition-colors"
-                      >
-                        {item.label}
-                      </button>
-                      {activeSubmenu === item.label && (
-                        <div className="bg-white/20">
-                          {item.submenu.map((subitem) => (
-                            <a
-                              key={subitem.label}
-                              href={subitem.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                handleNavClick(subitem.href);
-                              }}
-                              className="block px-10 py-3 text-gray-700 hover:bg-white/40 hover:text-blue-600 transition-colors"
-                            >
-                              {subitem.label}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(item.href);
-                      }}
-                      className="block px-6 py-4 font-medium text-gray-900 hover:bg-white/40 transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  )}
-                </div>
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }}
+                  className="block px-6 py-4 font-medium text-gray-900 hover:bg-yellow-500/10 hover:text-yellow-600 transition-colors"
+                >
+                  {item.label}
+                </a>
               ))}
 
-              {/* 모바일 로그인/로그아웃 */}
+              {/* 모바일 전화 상담 */}
               <div className="border-t border-white/20 mt-2 pt-2">
-                {session ? (
-                  <>
-                    <div className="px-6 py-3 text-sm text-gray-600">
-                      {session.user?.name || '사용자'}님
-                    </div>
-                    <Link
-                      href="/profile"
-                      onClick={toggleMenu}
-                      className="block px-6 py-4 font-medium text-gray-900 hover:bg-white/40 transition-colors"
-                    >
-                      내 정보
-                    </Link>
-                    <button
-                      onClick={() => {
-                        toggleMenu();
-                        signOut({ callbackUrl: '/' });
-                      }}
-                      className="w-full text-left px-6 py-4 font-medium text-red-600 hover:bg-white/40 transition-colors flex items-center gap-2"
-                    >
-                      <LogOut className="h-4 w-4" />
-                      로그아웃
-                    </button>
-                  </>
-                ) : (
-                  <Link
-                    href="/auth/signin"
-                    onClick={toggleMenu}
-                    className="block px-6 py-4 font-medium text-blue-600 hover:bg-white/40 transition-colors"
-                  >
-                    로그인 / 회원가입
-                  </Link>
-                )}
+                <a
+                  href="tel:010-5533-3214"
+                  className="block px-6 py-4 font-bold text-yellow-600 hover:bg-yellow-500/10 transition-colors"
+                >
+                  📞 010-5533-3214
+                </a>
               </div>
             </nav>
           </div>

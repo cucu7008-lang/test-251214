@@ -1,36 +1,36 @@
 "use client";
 
-import { CheckCircle2, Sparkles, Target, Users, Zap } from "lucide-react";
+import { CheckCircle2, Sparkles, Home, Building, TrendingUp, FileText, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const solutions = [
   {
-    icon: Target,
-    title: "최적의 입지 분석",
-    description: "유동인구, 상권분석, 경쟁업체 현황을 종합 분석하여 최적의 자리를 추천해 드립니다.",
-    features: ["상권 빅데이터 분석", "맞춤형 업종 추천", "실시간 매물 정보"],
+    icon: Building,
+    title: "상가 및 사무실 전문 중개",
+    description: "상가, 사무실, 오피스텔 등 상업용 부동산 매매 및 임대차 계약을 투명하고 신속하게 진행합니다.",
+    features: ["상권 분석 제공", "권리금 협상 대행", "계약서 안전 검토"],
   },
   {
-    icon: Zap,
-    title: "원스톱 창업 지원",
-    description: "계약부터 인테리어, 사업자등록까지 창업의 모든 과정을 한 번에 해결하세요.",
-    features: ["전문 컨설턴트 배정", "인테리어 업체 연결", "법률/세무 상담"],
+    icon: Home,
+    title: "매매·전월세 중개",
+    description: "아파트, 빌라, 주택 등 주거용 부동산 매매 및 전월세 계약을 안전하고 신속하게 진행합니다.",
+    features: ["시세 정확도 100%", "법률자문 포함", "임대차 컨설팅"],
   },
   {
-    icon: Users,
-    title: "양도양수 중개 서비스",
-    description: "투명하고 안전한 양도양수 절차로 원하는 조건에 맞는 거래를 성사시켜 드립니다.",
-    features: ["실매물만 취급", "안전거래 시스템", "권리금 협상 대행"],
+    icon: TrendingUp,
+    title: "부동산 투자 상담",
+    description: "다년간의 경험으로 최적의 투자 타이밍과 물건을 추천. 안전한 자산 증식을 도와드립니다.",
+    features: ["시장 동향 분석", "수익률 시뮬레이션", "세금 절감 전략"],
   },
 ];
 
 const benefits = [
-  "병점역 도보 5분 거리의 프리미엄 입지",
-  "연간 15% 이상 증가하는 유동인구",
-  "다양한 업종 mix로 시너지 효과",
-  "충분한 주차공간 확보",
-  "신축 건물의 쾌적한 환경",
-  "합리적인 임대 조건",
+  "공인중개사 자격증 보유 전문가",
+  "병점역 5분 거리 골든스퀘어 I 위치",
+  "다년간 부동산 중개 경험",
+  "투명한 수수료 체계",
+  "계약 후 사후관리 서비스",
+  "법무사·세무사 네트워크 연계",
 ];
 
 export default function SolutionSection() {
@@ -43,14 +43,14 @@ export default function SolutionSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 섹션 헤더 */}
         <div className="text-center mb-16">
-          <span className="text-purple-400 font-medium text-sm uppercase tracking-wider">
-            솔루션
+          <span className="text-yellow-400 font-medium text-sm uppercase tracking-wider">
+            전문 서비스
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            병점복합타운이 <span className="gradient-text">해답</span>입니다
+            병점역광장부동산의 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">전문 솔루션</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            성공적인 창업과 안전한 양도양수를 위한 완벽한 솔루션을 제공합니다.
+            매매부터 투자 상담까지, 모든 부동산 거래를 안전하고 투명하게 진행합니다.
           </p>
         </div>
 
@@ -59,11 +59,11 @@ export default function SolutionSection() {
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className="relative p-8 rounded-2xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 group"
+              className="relative p-8 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-transparent border border-yellow-500/20 hover:border-yellow-500/40 transition-all duration-300 group"
             >
               {/* 아이콘 */}
-              <div className="w-16 h-16 rounded-2xl gradient-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <solution.icon className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-yellow-500 to-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <solution.icon className="w-8 h-8 text-black" />
               </div>
 
               {/* 제목 & 설명 */}
@@ -74,7 +74,7 @@ export default function SolutionSection() {
               <ul className="space-y-3">
                 {solution.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-yellow-400 flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -84,22 +84,22 @@ export default function SolutionSection() {
         </div>
 
         {/* 혜택 섹션 */}
-        <div className="rounded-3xl bg-gradient-to-br from-purple-900/30 to-black border border-purple-500/20 p-8 sm:p-12">
+        <div className="rounded-3xl bg-gradient-to-br from-yellow-900/30 to-black border border-yellow-500/20 p-8 sm:p-12">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* 왼쪽: 텍스트 */}
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="w-6 h-6 text-purple-400" />
-                <span className="text-purple-400 font-medium">병점복합타운만의 특별함</span>
+                <Sparkles className="w-6 h-6 text-yellow-400" />
+                <span className="text-yellow-400 font-medium">병점역광장부동산만의 특별함</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-                왜 병점복합타운인가요?
+                왜 병점역광장부동산인가요?
               </h3>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-purple-400" />
+                    <div className="w-6 h-6 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-yellow-400" />
                     </div>
                     <span className="text-gray-300">{benefit}</span>
                   </li>
@@ -109,17 +109,17 @@ export default function SolutionSection() {
 
             {/* 오른쪽: CTA */}
             <div className="flex-shrink-0 text-center lg:text-left">
-              <div className="p-8 rounded-2xl bg-black/50 border border-purple-500/30">
+              <div className="p-8 rounded-2xl bg-black/50 border border-yellow-500/30">
                 <p className="text-2xl font-bold text-white mb-2">
-                  지금 바로 시작하세요
+                  지금 바로 상담하세요
                 </p>
                 <p className="text-gray-400 mb-6">
-                  무료 상담으로 맞춤 솔루션을 받아보세요
+                  무료 상담으로 최적의 매물을 찾아보세요
                 </p>
                 <Button
                   onClick={scrollToForm}
                   size="lg"
-                  className="gradient-purple text-white px-8 py-6 rounded-full text-lg hover:scale-105 transition-transform w-full"
+                  className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black font-bold px-8 py-6 rounded-full text-lg hover:scale-105 transition-transform w-full"
                 >
                   무료 상담 신청
                 </Button>

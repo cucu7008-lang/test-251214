@@ -22,25 +22,25 @@ export const metadata: Metadata = {
     default: "병점역광장부동산 | 병점복합타운 상가 & 사무실 전문",
     template: "%s | 병점역광장부동산",
   },
-  description: "병점복합타운 상가·사무실 전문 병점역광장부동산입니다. 창업 상담, 양도양수, 매물정보, 부동산 상식까지 한 곳에서! 병점역 도보 5분, 무료 상담 신청하세요.",
+  description: "경기도 화성시 병점역 부동산 전문 병점역광장부동산공인중개사사무소입니다. 매매·전월세·상가·토지 거래부터 투자 상담까지 다년간 경험의 전문가가 함께합니다. 병점역 5분 거리, 무료 상담 신청하세요.",
 
   // SEO 키워드
   keywords: [
     "병점역광장부동산",
-    "병점복합타운",
-    "병점 상가",
-    "병점 사무실",
-    "병점역 상가",
-    "화성시 상가",
-    "상가 창업",
-    "상가 양도양수",
-    "상가 임대",
-    "사무실 임대",
-    "창업 상담",
-    "매물정보",
-    "부동산 상식",
     "병점 부동산",
-    "화성 부동산",
+    "화성시 부동산",
+    "병점역 부동산",
+    "골든스퀘어 부동산",
+    "병점 아파트",
+    "병점 매매",
+    "병점 전월세",
+    "병점 상가",
+    "병점 토지",
+    "부동산 투자",
+    "부동산 상담",
+    "공인중개사",
+    "전화룡",
+    "화성 매물",
   ],
 
   // 작성자 정보
@@ -75,14 +75,14 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: siteUrl,
     siteName: "병점역광장부동산",
-    title: "병점역광장부동산 | 병점복합타운 상가 & 사무실 전문",
-    description: "병점복합타운 상가·사무실 전문! 창업 상담, 양도양수, 매물정보, 부동산 상식까지. 병점역 도보 5분, 지금 무료 상담 신청하세요.",
+    title: "병점역광장부동산 | 화성시 병점역 부동산 전문",
+    description: "매매·전월세·상가·토지 전문! 다년간 경험의 공인중개사가 함께합니다. 병점역 5분 거리, 지금 무료 상담 신청하세요.",
     images: [
       {
         url: "/land.png",
         width: 1200,
         height: 630,
-        alt: "병점역광장부동산 - 상담문의, 매물정보, 부동산 상식, 홈페이지",
+        alt: "병점역광장부동산 - 매물정보, 부동산 상담, 투자 컨설팅",
         type: "image/png",
       },
     ],
@@ -91,15 +91,15 @@ export const metadata: Metadata = {
   // Twitter 카드
   twitter: {
     card: "summary_large_image",
-    title: "병점역광장부동산 | 병점복합타운 상가 & 사무실",
-    description: "병점복합타운 상가·사무실 전문! 창업 상담, 양도양수, 매물정보까지.",
+    title: "병점역광장부동산 | 화성시 병점역 부동산 전문",
+    description: "매매·전월세·상가·토지 전문! 다년간 경험의 공인중개사가 함께합니다.",
     images: ["/land.png"],
     creator: "@byeongjeom",
   },
 
   // 기타 메타 정보
   category: "부동산",
-  classification: "상가/사무실 임대",
+  classification: "부동산 중개",
 
   // 네이버 웹마스터 도구 인증 (네이버 서치어드바이저에서 발급받은 코드로 교체)
   verification: {
@@ -126,7 +126,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "병점역광장부동산공인중개사사무소",
-  description: "병점복합타운 상가·사무실 전문 부동산. 창업 상담, 양도양수, 매물정보 제공.",
+  description: "화성시 병점역 부동산 전문. 매매·전월세·상가·토지 거래 및 투자 상담 제공.",
   url: siteUrl,
   logo: `${siteUrl}/land.png`,
   image: `${siteUrl}/land.png`,
@@ -143,7 +143,7 @@ const jsonLd = {
     streetAddress: "병점노을4로19, 골든스퀘어 I 109-1호",
     addressLocality: "화성시",
     addressRegion: "경기도",
-    postalCode: "18000",
+    postalCode: "18563",
     addressCountry: "KR",
   },
   geo: {
@@ -154,19 +154,13 @@ const jsonLd = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       opens: "09:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "10:00",
-      closes: "15:00",
+      closes: "20:00",
     },
   ],
   sameAs: [
-    // 소셜 미디어 URL 추가
+    // 소셜 미디어 URL 추가 (네이버 블로그, 카페 등)
   ],
   priceRange: "$$",
   areaServed: {
