@@ -14,7 +14,7 @@ const solutions = [
     icon: Home,
     title: "매매·전월세 중개",
     description: "아파트, 빌라, 주택 등 주거용 부동산 매매 및 전월세 계약을 안전하고 신속하게 진행합니다.",
-    features: ["시세 정확도 100%", "법률자문 포함", "임대차 컨설팅"],
+    features: ["시세 정확도 100% 도전", "법률자문 포함", "임대차 컨설팅"],
   },
   {
     icon: TrendingUp,
