@@ -93,13 +93,13 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* 로고 */}
             <Link href="/" className="flex items-center">
-              <div className="relative h-12 w-auto">
+              <div className="relative h-14 w-auto">
                 <Image
                   src="/sangadaichi-logo.svg"
                   alt="상가다이찌투자연구소 로고"
-                  width={320}
-                  height={70}
-                  className="h-12 w-auto object-contain"
+                  width={400}
+                  height={80}
+                  className="h-14 w-auto object-contain"
                   priority
                 />
               </div>
