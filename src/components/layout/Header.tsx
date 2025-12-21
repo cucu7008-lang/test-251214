@@ -26,8 +26,8 @@ const navigationItems: NavItem[] = [
     href: 'https://blog.naver.com/td5875/223233920403',
   },
   {
-    label: '네이버부동산 연결',
-    href: 'https://land.naver.com/',
+    label: '매물정보',
+    href: 'https://new.land.naver.com/complexes?ms=37.2052876,127.0300579,18&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=td5533',
   },
   {
     label: '고객 후기',
