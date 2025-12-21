@@ -95,21 +95,21 @@ export default function ProductDetailPage() {
       <div className="h-20"></div>
 
       {/* 뒤로가기 버튼 */}
-      <div className="bg-gray-50 border-b">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+      <div className="bg-gradient-to-b from-gray-50 to-gray-100 border-b-2 border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 xl:px-12 py-5">
           <Link
             href="/#products"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium"
+            className="inline-flex items-center gap-3 text-gray-700 hover:text-gray-900 font-semibold text-lg transition-colors duration-200"
           >
-            <ArrowLeft className="h-5 w-5" />
+            <ArrowLeft className="h-6 w-6" />
             상품 목록으로
           </Link>
         </div>
       </div>
 
       {/* 메인 컨텐츠 */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 xl:px-12 py-16 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
           {/* 왼쪽: 이미지 */}
           <div>
             <div className="sticky top-24">
@@ -131,19 +131,19 @@ export default function ProductDetailPage() {
 
           {/* 오른쪽: 상세 정보 */}
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.title}</h1>
-            <p className="text-xl text-gray-600 mb-8">{product.description}</p>
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">{product.title}</h1>
+            <p className="text-2xl lg:text-3xl text-gray-700 mb-10 leading-relaxed font-medium">{product.description}</p>
 
             {/* 가격 정보 */}
-            <div className="bg-blue-50 rounded-xl p-6 mb-8">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 mb-10 shadow-lg">
+              <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">월 임대료</div>
-                  <div className="text-2xl font-bold text-blue-600">{product.price}</div>
+                  <div className="text-base text-gray-700 mb-2 font-medium">월 임대료</div>
+                  <div className="text-3xl lg:text-4xl font-bold text-blue-600">{product.price}</div>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">보증금</div>
-                  <div className="text-2xl font-bold text-blue-600">{product.deposit}</div>
+                  <div className="text-base text-gray-700 mb-2 font-medium">보증금</div>
+                  <div className="text-3xl lg:text-4xl font-bold text-blue-600">{product.deposit}</div>
                 </div>
               </div>
             </div>
@@ -219,32 +219,32 @@ export default function ProductDetailPage() {
             </div>
 
             {/* 문의하기 및 결제 버튼 */}
-            <div className="sticky bottom-0 bg-white border-t border-gray-200 -mx-6 px-6 py-6 lg:mx-0 lg:border-0 lg:p-0">
-              <div className="grid grid-cols-3 gap-4">
+            <div className="sticky bottom-0 bg-white border-t-2 border-gray-200 -mx-6 px-6 py-8 lg:mx-0 lg:border-0 lg:p-0 shadow-2xl lg:shadow-none">
+              <div className="grid grid-cols-3 gap-5">
                 <a
                   href="tel:010-5533-3214"
-                  className="flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg"
+                  className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-5 rounded-xl text-lg font-bold hover:bg-blue-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
                 >
-                  <Phone className="h-5 w-5" />
+                  <Phone className="h-6 w-6" />
                   전화
                 </a>
                 <a
                   href="#contact"
-                  className="flex items-center justify-center gap-2 bg-gray-700 text-white px-4 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-lg"
+                  className="flex items-center justify-center gap-2 bg-gray-700 text-white px-6 py-5 rounded-xl text-lg font-bold hover:bg-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
                 >
-                  <Mail className="h-5 w-5" />
+                  <Mail className="h-6 w-6" />
                   상담
                 </a>
                 <button
                   onClick={handlePayment}
                   disabled={isProcessing}
-                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-4 rounded-xl font-bold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-5 rounded-xl text-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <CreditCard className="h-5 w-5" />
+                  <CreditCard className="h-6 w-6" />
                   {isProcessing ? '처리중...' : '결제'}
                 </button>
               </div>
-              <p className="text-xs text-gray-500 text-center mt-3">
+              <p className="text-sm text-gray-600 text-center mt-4 font-medium">
                 테스트 결제 환경입니다. 실제 결제는 발생하지 않습니다.
               </p>
             </div>

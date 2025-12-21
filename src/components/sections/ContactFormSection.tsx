@@ -94,41 +94,41 @@ export default function ContactFormSection() {
   }
 
   return (
-    <section id="contact-form" className="py-24 bg-gradient-to-b from-[#0a0a0a] to-black">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="contact-form" className="py-28 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* 왼쪽: 텍스트 */}
           <div>
-            <span className="text-purple-400 font-medium text-sm uppercase tracking-wider">
+            <span className="text-purple-400 font-semibold text-sm uppercase tracking-wider">
               무료 상담
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mt-6 mb-8 leading-tight">
               지금 바로<br />
               <span className="gradient-text">무료 상담</span>을 신청하세요
             </h2>
-            <p className="text-gray-400 text-lg mb-8">
+            <p className="text-gray-300 text-xl lg:text-2xl mb-10 leading-relaxed font-medium">
               전문 컨설턴트가 맞춤형 솔루션을 제안해 드립니다.<br />
               부담 없이 문의해 주세요.
             </p>
 
             {/* 연락처 정보 */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-4 text-gray-300">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-purple-400" />
+            <div className="space-y-5">
+              <div className="flex items-center gap-5 text-gray-200 hover:text-white transition-colors duration-200">
+                <div className="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center shadow-lg">
+                  <Phone className="w-6 h-6 text-purple-400" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">전화 상담</div>
-                  <div className="font-medium">010-5533-3214</div>
+                  <div className="text-sm text-gray-400 font-medium">전화 상담</div>
+                  <div className="text-lg font-semibold">010-5533-3214</div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 text-gray-300">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-purple-400" />
+              <div className="flex items-center gap-5 text-gray-200 hover:text-white transition-colors duration-200">
+                <div className="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center shadow-lg">
+                  <Mail className="w-6 h-6 text-purple-400" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">이메일</div>
-                  <div className="font-medium">td5875@naver.com</div>
+                  <div className="text-sm text-gray-400 font-medium">이메일</div>
+                  <div className="text-lg font-semibold">td5875@naver.com</div>
                 </div>
               </div>
             </div>
@@ -136,16 +136,16 @@ export default function ContactFormSection() {
             {/* 카카오톡 버튼 */}
             <Button
               onClick={handleKakaoClick}
-              className="mt-8 bg-[#FEE500] text-[#3C1E1E] hover:bg-[#FDD835] px-6 py-6 rounded-xl text-lg font-medium"
+              className="mt-10 bg-[#FEE500] text-[#3C1E1E] hover:bg-[#FDD835] px-8 py-7 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
-              <MessageCircle className="w-5 h-5 mr-2" />
+              <MessageCircle className="w-6 h-6 mr-2" />
               카카오톡으로 문의하기
             </Button>
           </div>
 
           {/* 오른쪽: 폼 */}
-          <div className="p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="p-10 lg:p-12 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 shadow-2xl backdrop-blur-sm">
+            <form onSubmit={handleSubmit} className="space-y-7">
               {/* 이름 */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -248,11 +248,11 @@ export default function ContactFormSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.phone || !formData.interest}
-                className="w-full gradient-purple text-white py-6 rounded-xl text-lg font-medium hover:scale-[1.02] transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full gradient-purple text-white py-7 rounded-xl text-lg font-semibold hover:scale-[1.03] transition-all duration-300 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    <Loader2 className="w-6 h-6 mr-2 animate-spin" />
                     전송 중...
                   </>
                 ) : (
@@ -260,7 +260,7 @@ export default function ContactFormSection() {
                 )}
               </Button>
 
-              <p className="text-center text-xs text-gray-500">
+              <p className="text-center text-sm text-gray-400 font-medium">
                 신청하시면 개인정보 수집 및 이용에 동의하는 것으로 간주됩니다.
               </p>
             </form>

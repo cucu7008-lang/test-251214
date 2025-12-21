@@ -107,9 +107,34 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Pretendard', 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* High DPI / Retina Display Optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  /* Sharper text rendering */
+  h1, h2, h3, h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+  }
+
+  /* Improved button and interactive element sharpness */
+  button, a, input, textarea {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
