@@ -75,7 +75,15 @@ export default function PortfolioSection() {
             매물 갤러리
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            마우스를 올려 다양한 매물 정보를 확인하세요
+            <a
+              href="https://new.land.naver.com/complexes?ms=37.2052876,127.0300579,18&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=td5533"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-yellow-400 hover:text-yellow-300 transition-colors underline"
+            >
+              매물정보 링크
+            </a>
+            로 다양한 매물 정보를 확인하세요
           </p>
         </div>
 
