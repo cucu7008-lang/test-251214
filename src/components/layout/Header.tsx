@@ -26,8 +26,8 @@ const navigationItems: NavItem[] = [
     href: 'https://blog.naver.com/td5875/223233920403',
   },
   {
-    label: '매물 정보',
-    href: '/#portfolio',
+    label: '네이버부동산 연결',
+    href: 'https://land.naver.com/',
   },
   {
     label: '고객 후기',
