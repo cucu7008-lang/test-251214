@@ -94,17 +94,24 @@ export default function ContactFormSection() {
   }
 
   return (
-    <section id="contact-form" className="py-28 lg:py-32 bg-gradient-to-b from-[#0a0a0a] to-black">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="contact-form" className="relative py-28 lg:py-32 bg-gradient-to-b from-[#0a0a0a] via-[#1a0a2e] to-black overflow-hidden">
+      {/* Animated background particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-600 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* 왼쪽: 텍스트 */}
-          <div>
-            <span className="text-purple-400 font-semibold text-sm uppercase tracking-wider">
+          <div className="animate-fadeInUp">
+            <span className="inline-block text-purple-400 font-semibold text-sm uppercase tracking-wider bg-purple-500/10 px-4 py-2 rounded-full backdrop-blur-sm border border-purple-500/20">
               무료 상담
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mt-6 mb-8 leading-tight">
               지금 바로<br />
-              <span className="gradient-text">무료 상담</span>을 신청하세요
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">무료 상담</span>을 신청하세요
             </h2>
             <p className="text-gray-300 text-xl lg:text-2xl mb-10 leading-relaxed font-medium">
               전문 컨설턴트가 맞춤형 솔루션을 제안해 드립니다.<br />
@@ -113,22 +120,22 @@ export default function ContactFormSection() {
 
             {/* 연락처 정보 */}
             <div className="space-y-5">
-              <div className="flex items-center gap-5 text-gray-200 hover:text-white transition-colors duration-200">
-                <div className="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center shadow-lg">
-                  <Phone className="w-6 h-6 text-purple-400" />
+              <div className="group flex items-center gap-5 text-gray-200 hover:text-white transition-all duration-300 bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 hover:border-purple-500/50 hover:bg-white/10">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300">
+                  <Phone className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-400 font-medium">전화 상담</div>
-                  <div className="text-lg font-semibold">010-5533-3214</div>
+                  <div className="text-lg font-semibold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">010-5533-3214</div>
                 </div>
               </div>
-              <div className="flex items-center gap-5 text-gray-200 hover:text-white transition-colors duration-200">
-                <div className="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center shadow-lg">
-                  <Mail className="w-6 h-6 text-purple-400" />
+              <div className="group flex items-center gap-5 text-gray-200 hover:text-white transition-all duration-300 bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 hover:border-blue-500/50 hover:bg-white/10">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center shadow-lg group-hover:shadow-blue-500/50 transition-all duration-300">
+                  <Mail className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-400 font-medium">이메일</div>
-                  <div className="text-lg font-semibold">td5875@naver.com</div>
+                  <div className="text-lg font-semibold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">td5875@naver.com</div>
                 </div>
               </div>
             </div>
@@ -136,16 +143,20 @@ export default function ContactFormSection() {
             {/* 카카오톡 버튼 */}
             <Button
               onClick={handleKakaoClick}
-              className="mt-10 bg-[#FEE500] text-[#3C1E1E] hover:bg-[#FDD835] px-8 py-7 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              className="group relative mt-10 bg-gradient-to-r from-[#FEE500] to-[#FFD700] text-[#3C1E1E] hover:from-[#FDD835] hover:to-[#FFC800] px-8 py-7 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
             >
-              <MessageCircle className="w-6 h-6 mr-2" />
-              카카오톡으로 문의하기
+              <span className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#FEE500] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <MessageCircle className="w-6 h-6 mr-2 relative z-10" />
+              <span className="relative z-10">카카오톡으로 문의하기</span>
             </Button>
           </div>
 
           {/* 오른쪽: 폼 */}
-          <div className="p-10 lg:p-12 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 shadow-2xl backdrop-blur-sm">
-            <form onSubmit={handleSubmit} className="space-y-7">
+          <div className="relative p-10 lg:p-12 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl backdrop-blur-md animate-fadeInUp-delay-1 overflow-hidden">
+            {/* Glassmorphism overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 rounded-3xl"></div>
+
+            <form onSubmit={handleSubmit} className="space-y-7 relative z-10">
               {/* 이름 */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -248,16 +259,19 @@ export default function ContactFormSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.phone || !formData.interest}
-                className="w-full gradient-purple text-white py-7 rounded-xl text-lg font-semibold hover:scale-[1.03] transition-all duration-300 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="group relative w-full bg-gradient-to-r from-purple-600 via-purple-700 to-blue-600 text-white py-7 rounded-xl text-lg font-semibold hover:scale-[1.03] transition-all duration-300 shadow-xl hover:shadow-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 overflow-hidden"
               >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-6 h-6 mr-2 animate-spin" />
-                    전송 중...
-                  </>
-                ) : (
-                  "무료 상담 신청하기"
-                )}
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-700 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                <span className="relative z-10">
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-6 h-6 mr-2 animate-spin inline-block" />
+                      전송 중...
+                    </>
+                  ) : (
+                    "무료 상담 신청하기"
+                  )}
+                </span>
               </Button>
 
               <p className="text-center text-sm text-gray-400 font-medium">
