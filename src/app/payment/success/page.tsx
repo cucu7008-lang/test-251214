@@ -107,7 +107,7 @@ function PaymentSuccessContent() {
               <div className="flex justify-between py-3">
                 <span className="text-gray-600">승인 시간</span>
                 <span className="font-medium text-gray-900">
-                  {new Date(paymentInfo.approvedAt).toLocaleString('ko-KR')}
+                  {paymentInfo.approvedAt ? new Date(paymentInfo.approvedAt).toLocaleString('ko-KR') : '-'}
                 </span>
               </div>
             </div>

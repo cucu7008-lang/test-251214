@@ -6,9 +6,10 @@ import { syncAllDataToFirebase, getProductsFromFirebase, getUsersFromFirebase, g
 import Link from 'next/link';
 
 interface SyncResult {
-  products?: { success: boolean; message: string };
-  users?: { success: boolean; message: string };
-  orders?: { success: boolean; message: string };
+  products?: { success: boolean; message?: string; count?: number; error?: string };
+  users?: { success: boolean; message?: string; count?: number; error?: string };
+  orders?: { success: boolean; message?: string; count?: number; error?: string };
+  reviews?: { success: boolean; message?: string; count?: number; error?: string };
   error?: string;
 }
 
