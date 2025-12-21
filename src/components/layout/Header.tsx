@@ -93,15 +93,10 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* 로고 */}
             <Link href="/" className="flex items-center">
-              <div className="relative h-12 w-auto">
-                <Image
-                  src="/logo.svg"
-                  alt="로고"
-                  width={120}
-                  height={48}
-                  className="h-12 w-auto object-contain"
-                  priority
-                />
+              <div className="relative">
+                <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600">
+                  상가다이찌
+                </h1>
               </div>
             </Link>
 
