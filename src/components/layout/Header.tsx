@@ -97,8 +97,8 @@ export default function Header() {
                 <Image
                   src="/sangadaichi-logo.svg"
                   alt="상가다이찌투자연구소 로고"
-                  width={280}
-                  height={60}
+                  width={320}
+                  height={70}
                   className="h-12 w-auto object-contain"
                   priority
                 />
