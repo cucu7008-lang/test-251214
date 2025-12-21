@@ -38,5 +38,8 @@
   </g>
 
   <!-- 텍스트: 상가다이찌투자연구소 (더 크고 눈에 띄게) -->
-  <text x="68" y="45" font-family="Pretendard, Arial, sans-serif" font-size="26" font-weight="900" fill="url(#textGradient)" letter-spacing="-0.3" stroke="#F59E0B" stroke-width="0.5">상가다이찌투자연구소</text>
+  <!-- 배경 텍스트 (그림자 효과) -->
+  <text x="68" y="45" font-family="Pretendard, Arial, sans-serif" font-size="28" font-weight="900" fill="#000000" letter-spacing="-0.3" opacity="0.6">상가다이찌투자연구소</text>
+  <!-- 메인 텍스트 -->
+  <text x="68" y="45" font-family="Pretendard, Arial, sans-serif" font-size="28" font-weight="900" fill="#FBBF24" letter-spacing="-0.3" stroke="#F59E0B" stroke-width="1.2">상가다이찌투자연구소</text>
 </svg>
