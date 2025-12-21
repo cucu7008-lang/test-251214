@@ -151,7 +151,7 @@ export default function FooterSection() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://www.youtube.com/channel/UCBuGcSh32NtWUTqtNjI1czQ"
+                href="https://www.youtube.com/@telephonedragon"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 hover:bg-yellow-500/20 hover:scale-110 transition-all"
