@@ -1,5 +1,12 @@
-import { MapPin, Phone, Mail, Building2, Hash, User, FileText } from "lucide-react";
+import { MapPin, Phone, Mail, Building2, Hash, User, FileText, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
+
+// 네이버 블로그 아이콘 SVG
+const NaverBlogIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16.273 12.845L7.376 0H0v24h7.726l8.898-12.845L24 24V0h-7.727z"/>
+  </svg>
+);
 
 export default function FooterSection() {
   // 정적 연도 값 사용 (hydration mismatch 방지)
@@ -117,6 +124,42 @@ export default function FooterSection() {
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* 소셜 미디어 */}
+        <div className="mb-8 pb-8 border-b border-yellow-500/10">
+          <div className="flex flex-col items-center gap-4">
+            <h4 className="text-lg font-semibold text-white">소셜 미디어</h4>
+            <div className="flex gap-4">
+              <a
+                href="https://blog.naver.com/td5875"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 hover:bg-yellow-500/20 hover:scale-110 transition-all"
+                aria-label="네이버 블로그"
+              >
+                <NaverBlogIcon />
+              </a>
+              <a
+                href="#instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 hover:bg-yellow-500/20 hover:scale-110 transition-all"
+                aria-label="인스타그램"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="#youtube"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 hover:bg-yellow-500/20 hover:scale-110 transition-all"
+                aria-label="유튜브"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 
