@@ -96,8 +96,8 @@ export default function Header() {
               <div className="relative h-12 w-auto">
                 <Image
                   src="/sangadaichi-logo.svg"
-                  alt="상가다이찌 로고"
-                  width={200}
+                  alt="상가다이찌투자연구소 로고"
+                  width={280}
                   height={60}
                   className="h-12 w-auto object-contain"
                   priority
