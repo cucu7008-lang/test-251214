@@ -142,7 +142,7 @@ export default function FooterSection() {
                 <NaverBlogIcon />
               </a>
               <a
-                href="https://www.instagram.com/teletelephonedragon"
+                href="https://www.instagram.com/teletelephonedragon/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 hover:bg-yellow-500/20 hover:scale-110 transition-all"
